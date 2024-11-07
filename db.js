@@ -2,9 +2,15 @@
 // responsible to maintain node.js and mongodb
 
 import mongoose, { mongo } from "mongoose";
+import dotenv from 'dotenv';
 
+dotenv.config();
 //define mongodb connection url
-const mongoURL='mongodb://127.0.0.1:27017/hotels'
+// const mongoURL=  process.env.MONGODB_URL_LOCAL;
+const mongoURL=  process.env.MONGODB_URL;
+
+
+
 mongoose.connect(mongoURL,{
     usenewUrlParser:true,
     useUnifiedTopology:true

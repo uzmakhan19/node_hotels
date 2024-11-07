@@ -2,19 +2,16 @@ import express from 'express';
 import db from './db.js';
 import personRoutes from './routes/personRoutes.js';
 import menuRoutes from './routes/menuRoutes.js';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
-
-import bodyParser from 'body-parser';
 app.use(bodyParser.json());
-
 app.use('/person', personRoutes);
 app.use('/menuItem', menuRoutes);
 
-
-app.get('/', function (req, res) {
-    res.send('welcome to my hotel...')
-})
+const port = process.env.PORT || 3000;
 
 //app.listen(3000) //server active
 
